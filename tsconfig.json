@@ -1,0 +1,17 @@
+{
+  "include": ["src/**/*", "global.d.ts"],
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "declaration": true,
+    "sourceMap": true,
+    "noImplicitReturns": true,
+    "outDir": "dist/esm",
+    "types": ["node", "jest"]
+  }
+}
