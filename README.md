@@ -25,7 +25,7 @@ The **remark plugins** used in the `@ipikuka/react-markdown` are:
 - remark-ins
 - remark-smartypants
 - remark-supersub
-- remark-textr
+- remark-textr-sync (custom)
 - remark-textr-plugins (custom)
 
 The **rehype plugins** used in the `@ipikuka/react-markdown` are:
