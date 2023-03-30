@@ -28,7 +28,7 @@ import type {
 } from "react-markdown/lib/react-markdown.js";
 
 import rehypePreLanguage from "./lib/rehype-pre-language.js";
-import remarkTextr from "./lib/remark-textr-sync";
+import remarkTextr from "./lib/remark-textr-sync.js";
 import {
   trademarks,
   typographic,
