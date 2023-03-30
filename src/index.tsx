@@ -2,7 +2,6 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkGemoji from "remark-gemoji";
 import remarkEmoji from "remark-emoji";
-import remarkTextr from "remark-textr";
 import remarkSuperSub from "remark-supersub";
 import smartypants from "remark-smartypants";
 import remarkCodeTitles from "remark-flexible-code-titles";
@@ -29,6 +28,7 @@ import type {
 } from "react-markdown/lib/react-markdown.js";
 
 import rehypePreLanguage from "./lib/rehype-pre-language.js";
+import remarkTextr from "./lib/remark-textr-sync";
 import {
   trademarks,
   typographic,
