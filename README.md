@@ -116,9 +116,9 @@ If you think that an omitted option is needed, you are wellcome to open an issue
 
 ## Examples:
 
-All the examples given in the link https://github.com/remarkjs/react-markdown#examples are valid, **but YOU DON'T NEED THE PROVIDE ANY PLUGIN** since the `@ipikuka/react-markdown` provides the pre-selected plugins by default for you.
+All the examples given in the link https://github.com/remarkjs/react-markdown#examples are valid, **but YOU DON'T NEED TO PROVIDE ANY PLUGIN** since the `@ipikuka/react-markdown` provides some pre-selected plugins by default for you.
 
-Need a playground with single page web application. _(PR is wellcome)_
+Needs a playground with single page web application. _(PR is wellcome)_
 
 ## Types
 
