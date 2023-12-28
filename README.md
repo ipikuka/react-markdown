@@ -41,18 +41,6 @@ The **rehype plugins** used in the `@ipikuka/react-markdown` are:
 This package is suitable for ESM module only. In Node.js (16.0+), install with npm:
 
 ```bash
-npm install react-markdown @ipikuka/react-markdown
-```
-
-or
-
-```bash
-yarn add react-markdown @ipikuka/react-markdown
-```
-
-If you installed the `react-markdown` already, then install only:
-
-```bash
 npm install @ipikuka/react-markdown
 ```
 
@@ -64,7 +52,7 @@ yarn add @ipikuka/react-markdown
 
 ## Usage
 
-This package is peer dependant with `react`, `@types/react` and `react-markdown` (by wooorm). So, it is assumed that you have already installed them in your project.
+This package is peer dependant with `react`, `@types/react`. So, it is assumed that you have already installed them in your project.
 
 ```js
 import React from 'react'
@@ -76,7 +64,7 @@ ReactDom.render(<ReactMarkdown># Hello, *world*!</ReactMarkdown>, document.body)
 
 ## Options
 
-The `@ipikuka/react-markdown` **<ReactMarkdown />** components accepts the `OpinionatedReactMarkdownOptions` which is similar `ReactMarkdownOptions` of the `react-markdown`, _but a little bit opinionated_.
+The `@ipikuka/react-markdown` **<ReactMarkdown />** component accepts the `OpinionatedReactMarkdownOptions` which is similar to `ReactMarkdownOptions` of the `react-markdown`, _but a little bit opinionated_.
 
 All options are _optional_. 
 
@@ -85,7 +73,6 @@ type OpinionatedReactMarkdownOptions = {
   children?: string; // default: ''
   className?: string; // default: undefined
   components?: Record<string, Component>; // default: {}
-  linkTarget?: string || (href, children, title) => string; // default: undefined
   skipHtml?: boolean; // default: false
 };
 ```
@@ -126,7 +113,7 @@ This package is fully typed with [TypeScript][typeScript]. The `<ReactMarkdown /
 
 ## Compatibility
 
-It is a `React` compatible package.
+It is a `React@^18` compatible package.
 
 ## Security
 
