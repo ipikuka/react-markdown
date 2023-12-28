@@ -1,4 +1,6 @@
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown, {
+  type Options as ReactMarkdownOptions,
+} from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkGemoji from "remark-gemoji";
 import remarkEmoji from "remark-emoji";
@@ -21,11 +23,6 @@ import rehypeAutolinkHeadings, { type Options } from "rehype-autolink-headings";
 import rehypePrismPlus from "rehype-prism-plus";
 import rehypeRaw from "rehype-raw";
 import { h } from "hastscript";
-// import { type VFileCompatible } from "vfile";
-import type {
-  ReactElement,
-  ReactMarkdownOptions,
-} from "react-markdown/lib/react-markdown.js";
 
 import rehypePreLanguage from "./lib/rehype-pre-language.js";
 import remarkTextr from "./lib/remark-textr-sync.js";
@@ -51,7 +48,7 @@ function toTitleCase(str: string | undefined) {
 
 type OpinionatedReactMarkdownOptions = Pick<
   ReactMarkdownOptions,
-  "children" | "className" | "components" | "linkTarget" | "skipHtml"
+  "children" | "className" | "components" | "skipHtml"
 >;
 
 export { type OpinionatedReactMarkdownOptions };
@@ -73,27 +70,25 @@ type ReactMarkdownOptions = {
     includeElementIndex?: boolean | undefined;
     transformLinkUri?: false | TransformLink | null | undefined;
     transformImageUri?: TransformImage | undefined;
-    linkTarget?: React.HTMLAttributeAnchorTarget | TransformLinkTarget | undefined;
     components?: Partial<Omit<NormalComponents, keyof SpecialComponents> & SpecialComponents> | undefined;
 }
 
 type OpinionatedReactMarkdownOptions = {
-    children: string;
-    className?: string | undefined;
-    components?: Partial<Omit<NormalComponents, keyof SpecialComponents> & SpecialComponents> | undefined;
-    linkTarget?: React.HTMLAttributeAnchorTarget | TransformLinkTarget | undefined;
-    skipHtml?: boolean | undefined;
+    children: string; // Markdown
+    className?: string | undefined; // Wrap in a `div` with this class name.
+    components?: Partial<Omit<NormalComponents, keyof SpecialComponents> & SpecialComponents> | undefined; // Map tag names to components.
+    skipHtml?: boolean | undefined; // Ignore HTML in markdown completely (default: `false`)
 }
 */
 
 /**
  *
- * Opinionated ReactMarkdown wrapper
+ * Component to render markdown. Opinionated ReactMarkdown wrapper.
  *
  */
 const OpinionatedReactMarkdown = (
-  props: OpinionatedReactMarkdownOptions,
-): ReactElement => {
+  props: Readonly<OpinionatedReactMarkdownOptions>,
+): JSX.Element => {
   return (
     <ReactMarkdown
       {...props}
@@ -133,7 +128,7 @@ const OpinionatedReactMarkdown = (
         [
           remarkFlexibleContainers,
           {
-            title: null,
+            title: () => null,
             containerTagName: "admonition",
             containerProperties: (type, title) => {
               return {
