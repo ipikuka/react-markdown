@@ -1,8 +1,8 @@
 {
   "include": ["src/**/*", "global.d.ts"],
   "compilerOptions": {
-    "target": "ESNext",
     "lib": ["ESNext", "DOM"],
+    "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -11,8 +11,7 @@
     "strict": true,
     "declaration": true,
     "sourceMap": true,
-    "noImplicitReturns": true,
     "outDir": "dist/esm",
-    "types": ["node", "jest"]
+    "noImplicitReturns": true
   }
 }
