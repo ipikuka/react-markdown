@@ -2,6 +2,7 @@ import ReactMarkdown, {
   type Options as ReactMarkdownOptions,
 } from "react-markdown";
 import remarkGfm from "remark-gfm";
+import remarkTextr from "remark-textr";
 import remarkGemoji from "remark-gemoji";
 import remarkEmoji from "remark-emoji";
 import remarkSuperSub from "remark-supersub";
@@ -23,11 +24,10 @@ import remarkIns from "remark-ins";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings, { type Options } from "rehype-autolink-headings";
 import rehypePrismPlus from "rehype-prism-plus";
+import rehypePreLanguage from "rehype-pre-language";
 import rehypeRaw from "rehype-raw";
 import { h } from "hastscript";
 
-import rehypePreLanguage from "./lib/rehype-pre-language.js";
-import remarkTextr from "./lib/remark-textr-sync.js";
 import {
   trademarks,
   typographic,
@@ -90,7 +90,7 @@ type OpinionatedReactMarkdownOptions = {
  */
 const OpinionatedReactMarkdown = (
   props: Readonly<OpinionatedReactMarkdownOptions>,
-): JSX.Element => {
+): React.ReactNode => {
   return (
     <ReactMarkdown
       {...props}
