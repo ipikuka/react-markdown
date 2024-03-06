@@ -2,6 +2,7 @@
 module.exports = {
   // https://kulshekhar.github.io/ts-jest/docs/guides/esm-support/
   preset: "ts-jest/presets/default-esm",
+  prettierPath: require.resolve("prettier-2"),
   moduleNameMapper: {
     "^(\\.{1,2}/.*)\\.js$": "$1",
   },
