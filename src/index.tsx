@@ -22,11 +22,14 @@ import remarkFlexibleMarkers, {
 } from "remark-flexible-markers";
 import remarkIns from "remark-ins";
 import rehypeSlug from "rehype-slug";
-import rehypeAutolinkHeadings, { type Options } from "rehype-autolink-headings";
+import rehypeAutolinkHeadings, {
+  type Options as AutolinkHeadingsOptions,
+} from "rehype-autolink-headings";
 import rehypePrismPlus from "rehype-prism-plus";
 import rehypePreLanguage from "rehype-pre-language";
 import rehypeRaw from "rehype-raw";
 import { h } from "hastscript";
+import { code, html } from "./lib/rehype-handlers";
 
 import {
   trademarks,
@@ -138,7 +141,7 @@ const OpinionatedReactMarkdown = (
             containerProperties: (type, title) => {
               return {
                 ["data-type"]: type?.toLowerCase(),
-                ["data-title"]: toTitleCase(title),
+                ["data-title"]: toTitleCase(title) ?? toTitleCase(type),
               };
             },
           } as FlexibleContainerOptions,
@@ -147,7 +150,7 @@ const OpinionatedReactMarkdown = (
       ]}
       rehypePlugins={[
         rehypeRaw, // to support html in markdown
-        rehypePreLanguage, // to add "data-language" property to pre elements.
+        [rehypePreLanguage, "data-language"], // to add "data-language" property to pre elements
         rehypeSlug, // to add ids to headings.
         [
           rehypeAutolinkHeadings,
@@ -155,7 +158,7 @@ const OpinionatedReactMarkdown = (
             behavior: "prepend",
             properties: { className: "anchor-copylink" },
             content: () => [h("icon.copylink")],
-          } as Options,
+          } as AutolinkHeadingsOptions,
         ], // to add links to headings with ids back to themselves.
         [
           rehypePrismPlus,
@@ -167,6 +170,7 @@ const OpinionatedReactMarkdown = (
       remarkRehypeOptions={{
         handlers: {
           ...defListHastHandlers,
+          html,
         },
       }}
     />
