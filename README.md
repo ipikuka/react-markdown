@@ -5,11 +5,11 @@
 ![npm-typescript]
 [![License][github-license]][github-license-url]
 
-This package is an opinionated wrapper of the [react-markdown][react-markdown] package that written by wooorm.
+This package is an opinionated wrapper of [react-markdown][react-markdown].
 
 ## When should I use this?
 
-The `@ipikuka/react-markdown` provides the `<ReactMarkdown />` component which is an opinionated wrapper of the `<ReactMarkdown />` component of the `react-markdown`, which is a React component to render markdown.
+The `@ipikuka/react-markdown` provides the `<ReactMarkdown />` which is a React component to render markdown. It is an opinionated wrapper of the [react-markdown][react-markdown] having pre-selected plugins and options.
 
 The **remark plugins** used in the `@ipikuka/react-markdown` are:
 
@@ -25,8 +25,7 @@ The **remark plugins** used in the `@ipikuka/react-markdown` are:
 - remark-ins
 - remark-smartypants
 - remark-supersub
-- remark-textr-sync (custom)
-- remark-textr-plugins (custom)
+- remark-textr (with custom plugins)
 
 The **rehype plugins** used in the `@ipikuka/react-markdown` are:
 
@@ -34,7 +33,7 @@ The **rehype plugins** used in the `@ipikuka/react-markdown` are:
 - rehype-prism-plus
 - rehype-slug
 - rehype-raw
-- rehype-pre-language (custom)
+- rehype-pre-language
 
 ## Installation
 
@@ -59,19 +58,19 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import ReactMarkdown from '@ipikuka/react-markdown'
 
-ReactDom.render(<ReactMarkdown># Hello, *world*!</ReactMarkdown>, document.body)
+ReactDom.render(<ReactMarkdown># Hello, *world*! Here is a ==marked text==.</ReactMarkdown>, document.body)
 ```
 
 ## Options
 
-The `@ipikuka/react-markdown` **<ReactMarkdown />** component accepts the `OpinionatedReactMarkdownOptions` which is similar to `ReactMarkdownOptions` of the `react-markdown`, _but a little bit opinionated_.
+The `@ipikuka/react-markdown` **<ReactMarkdown />** accepts `OpinionatedReactMarkdownOptions` which is similar to `ReactMarkdownOptions` of the `react-markdown`, _but a little bit opinionated_.
 
 All options are _optional_. 
 
 ```typescript
 type OpinionatedReactMarkdownOptions = {
   children?: string; // default: ''
-  className?: string; // default: undefined
+  className?: string;
   components?: Record<string, Component>; // default: {}
   skipHtml?: boolean; // default: false
 };
