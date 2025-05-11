@@ -29,8 +29,8 @@ import rehypePrismPlus from "rehype-prism-plus";
 import rehypePreLanguage from "rehype-pre-language";
 import rehypeRaw from "rehype-raw";
 import { h } from "hastscript";
-import { code, html } from "./lib/rehype-handlers";
 
+import { code, html } from "./lib/rehype-handlers.js";
 import {
   trademarks,
   typographic,
@@ -99,12 +99,7 @@ const OpinionatedReactMarkdown = (
       {...props}
       remarkPlugins={[
         remarkFixGuillemets,
-        [
-          smartypants,
-          {
-            dashes: "oldschool",
-          },
-        ],
+        [smartypants, { dashes: "oldschool" }],
         [
           remarkFlexibleMarkers,
           { doubleEqualityCheck: "=:=" } as FlexibleMarkerOptions,
@@ -112,9 +107,7 @@ const OpinionatedReactMarkdown = (
         remarkIns,
         [
           remarkGfm, // Github Flavored Markup
-          {
-            singleTilde: false,
-          },
+          { singleTilde: false },
         ],
         [
           remarkTextr,
@@ -126,13 +119,7 @@ const OpinionatedReactMarkdown = (
         remarkFlexibleParagraphs,
         remarkSuperSub,
         remarkGemoji,
-        [
-          remarkEmoji,
-          {
-            padSpaceAfter: false,
-            emoticon: true,
-          },
-        ],
+        [remarkEmoji, { padSpaceAfter: false, emoticon: true }],
         [
           remarkFlexibleContainers,
           {
@@ -160,19 +147,9 @@ const OpinionatedReactMarkdown = (
             content: () => [h("icon.copylink")],
           } as AutolinkHeadingsOptions,
         ], // to add links to headings with ids back to themselves.
-        [
-          rehypePrismPlus,
-          {
-            ignoreMissing: true,
-          },
-        ],
+        [rehypePrismPlus, { ignoreMissing: true }],
       ]}
-      remarkRehypeOptions={{
-        handlers: {
-          ...defListHastHandlers,
-          html,
-        },
-      }}
+      remarkRehypeOptions={{ handlers: { ...defListHastHandlers, html } }}
     />
   );
 };
