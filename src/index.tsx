@@ -53,7 +53,7 @@ function toTitleCase(str: string | undefined) {
 
 type OpinionatedReactMarkdownOptions = Pick<
   ReactMarkdownOptions,
-  "children" | "className" | "components" | "skipHtml"
+  "children" | "components" | "skipHtml"
 >;
 
 export { type OpinionatedReactMarkdownOptions };
