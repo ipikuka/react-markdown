@@ -1,6 +1,6 @@
 {
   "name": "@ipikuka/react-markdown",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "It is an opinionated wrapper of 'react-markdown'",
   "type": "module",
   "exports": "./dist/esm/index.js",
