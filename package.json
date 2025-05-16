@@ -63,7 +63,7 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
-    "@types/node": "^22.15.17",
+    "@types/node": "^22.15.18",
     "@types/react": "^18.3.21",
     "@types/react-dom": "^18.3.7",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
@@ -76,7 +76,7 @@
     "prettier-2": "npm:prettier@^2.8.8",
     "react-dom": "^18.3.1",
     "rimraf": "^5.0.10",
-    "ts-jest": "^29.3.2",
+    "ts-jest": "^29.3.3",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
